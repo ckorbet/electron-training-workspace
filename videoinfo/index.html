@@ -1,4 +1,21 @@
 <head></head>
 <body>
     <h1>Video Info</h1>
+    <form id="myForm">
+        <div>
+            <label>Select a video</label>
+            </br>
+            <input id="fileInputId" type="file" accept="video/*"/>
+        </div>
+        </br>
+        <button type="submit">Get Info</button>
+    </form>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            const myFile = document.getElementById("fileInputId").files[0];
+            debugger
+        });
+    </script>
 </body>
