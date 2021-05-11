@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug videoinfo",
+        "type": "node",
+        "request": "launch",
+        "cwd": "${workspaceFolder}/videoinfo",
+        "runtimeExecutable": "${workspaceFolder}/videoinfo/node_modules/.bin/electron",
+        "windows": {
+          "runtimeExecutable": "${workspaceFolder}/videoinfo/node_modules/.bin/electron.cmd"
+        },
+        "args" : ["."],
+        "outputCapture": "std",
+        "protocol": "inspector",
+        "stopOnEntry": false,
+        "runtimeArgs": [
+            "--nolazy"
+        ],
+        "console": "integratedTerminal",
+        "sourceMaps": true,
+        "localRoot": "${workspaceFolder}/videoinfo",
+        "remoteRoot": "${workspaceFolder}/videoinfo",
+        "outFiles": []
+      }
+    ]
+  }
