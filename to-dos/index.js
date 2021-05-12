@@ -18,13 +18,14 @@ const createAddWindow = () => {
         }
     });
     addWindow.loadURL(join(__dirname, 'add.html'));
+    addWindow.on('close', () => addWindow = null);
 };
 
 ipcMain.on('todo:add', (event, value) => {
     console.log(`This is my value: ${value}`);
     mainWindow.webContents.send('todo:add', value);
     addWindow.close();
-});
+});  
 
 const menuTemplate = [
     {
