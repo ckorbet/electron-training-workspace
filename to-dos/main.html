@@ -8,16 +8,17 @@
     <script>
         const electron = require('electron');
         const { ipcRenderer } = electron;
+        const theList = document.getElementById('listId');
 
         ipcRenderer.on('todo:add', (event, value) => {
             const li = document.createElement('li');
             const text = document.createTextNode(value);
             li.appendChild(text);
-            document.getElementById('listId').appendChild(li);
+            theList.appendChild(li);
         });
 
         ipcRenderer.on('todo:clear', (event) => {
-            document.getElementById('listId').innerHTML = '';
+            theList.innerHTML = '';
         });
     </script>
 </body>
