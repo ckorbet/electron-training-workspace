@@ -37,7 +37,7 @@ module.exports = class extends Tray {
         }
     }
 
-    onRightClick(event) {
+    onRightClick() {
         this.popUpContextMenu(Menu.buildFromTemplate([
             {
                 label: 'Quit',
