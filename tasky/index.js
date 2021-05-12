@@ -21,6 +21,9 @@ app.on('ready', () => {
     });
     mainWindow.loadURL(join(__dirname, './src/index.html'));
     mainWindow.on('closed', () => app.quit());
+    mainWindow.on('blur', () => {
+        mainWindow.hide();
+    });
 
     const iconName = process.platform === 'win32' ? 'windows-icon@2x.png' : 'iconTemplate@2x.png';
     timeTray = new TimerTray(join(__dirname, `./src/assets/${iconName}`), mainWindow, package.version);
