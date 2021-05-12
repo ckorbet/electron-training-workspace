@@ -15,5 +15,9 @@
             li.appendChild(text);
             document.getElementById('listId').appendChild(li);
         });
+
+        ipcRenderer.on('todo:clear', (event) => {
+            document.getElementById('listId').innerHTML = '';
+        });
     </script>
 </body>

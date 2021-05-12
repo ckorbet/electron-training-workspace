@@ -1,3 +1,4 @@
+const { ipcRenderer } = require('electron');
 const electron = require('electron');
 const { join } = require('path');
 
@@ -32,7 +33,19 @@ const menuTemplate = [
         submenu: [
             {
                 label: 'New to-do',
+                accelerator: (() => {
+                    if (process.platform === 'win32') {
+                        return 'Ctrl+Shift+A';
+                    } else if (process.platform === 'darwin') {
+                        return 'Command+A';
+                    }
+                })(),
                 click() { createAddWindow(); }
+            }, {
+                label: 'Clear to-do',
+                click() { 
+                    mainWindow.webContents.send('todo:clear');
+                }
             }, {
                 label: 'Quit',
                 accelerator: (() => {
