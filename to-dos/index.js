@@ -59,6 +59,8 @@ if (process.env.NODE_ENV !== 'production') {
         label: 'View',
         submenu: [
             {
+                role: 'reload'
+            }, {
                 label: 'Toggle Developer Tools',
                 accelerator: (() => {
                     if (process.platform === 'win32') {
