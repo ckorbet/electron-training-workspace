@@ -2,5 +2,18 @@
 <meta charset="UTF-8">
 <title>TO-DO List App</title>
 <body>
-    <h1>TO-DO List App</h1>    
+    <h1>TO-DO List App</h1>
+    <ul id="listId"></ul>
+
+    <script>
+        const electron = require('electron');
+        const { ipcRenderer } = electron;
+
+        ipcRenderer.on('todo:add', (event, value) => {
+            const li = document.createElement('li');
+            const text = document.createTextNode(value);
+            li.appendChild(text);
+            document.getElementById('listId').appendChild(li);
+        });
+    </script>
 </body>

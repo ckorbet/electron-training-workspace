@@ -22,7 +22,6 @@ const createAddWindow = () => {
 };
 
 ipcMain.on('todo:add', (event, value) => {
-    console.log(`This is my value: ${value}`);
     mainWindow.webContents.send('todo:add', value);
     addWindow.close();
 });  
