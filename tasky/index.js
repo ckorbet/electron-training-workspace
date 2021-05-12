@@ -22,31 +22,7 @@ app.on('ready', () => {
     mainWindow.on('closed', () => app.quit());
 
     const iconName = process.platform === 'win32' ? 'windows-icon@2x.png' : 'iconTemplate@2x.png';
-    tray = new TimerTray(join(__dirname, `./src/assets/${iconName}`));
-    tray.on('click', (event, bounds) => {
-        const { x, y } = bounds;
-        const {height, width } = mainWindow.getBounds();
-
-        if(mainWindow.isVisible()) {
-            mainWindow.hide();
-        } else {
-            let xPos, yPos;
-            if(process.platform === 'win32') {
-                yPos = y - height;
-                xPos = x + 50;
-            } else {
-                yPos = y;
-                xPos = x - width / 2;
-            }
-            mainWindow.setBounds({
-                x: xPos,
-                y: yPos,
-                height,
-                width
-            });
-            mainWindow.show();
-        }        
-    });
-
+    tray = new TimerTray(join(__dirname, `./src/assets/${iconName}`), mainWindow);
+    
     console.log('Application up & running');
 });
