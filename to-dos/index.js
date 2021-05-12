@@ -13,6 +13,13 @@ const menuTemplate = [
                 label: 'New to-do'
             }, {
                 label: 'Quit',
+                accelerator: (() => {
+                    if (process.platform === 'win32') {
+                        return 'Ctrl+Shift+Q';
+                    } else if (process.platform === 'darwin') {
+                        return 'Command+Q';
+                    }
+                })(),
                 click() {
                     app.quit();
                 }
