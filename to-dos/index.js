@@ -7,9 +7,12 @@ let mainWindow;
 
 const menuTemplate = [
     {
-        label: 'File'
-    }, {
-        label: 'Carlos'
+        label: 'File',
+        submenu: [
+            {
+                label: 'New to-do'
+            }
+        ]
     }
 ];
 
