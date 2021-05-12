@@ -16,6 +16,10 @@ const menuTemplate = [
     }
 ];
 
+if (process.platform !== 'win32') {
+    menuTemplate.unshift({});
+}
+
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
         webPreferences: {
