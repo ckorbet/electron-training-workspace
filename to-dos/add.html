@@ -5,8 +5,16 @@
     <form id="formId">
         <div>
             <label>Enter your to-do</label>
-            <input autofocus />
+            <input autofocus id="inputId" type="text"/>
         </div>
         <button type="submit">Add</button>
     </form>
+
+    <script>
+        document.getElementById('formId').addEventListener('submit', (event) => {
+            event.preventDefault();
+            debugger
+        });
+
+    </script>
 </body>

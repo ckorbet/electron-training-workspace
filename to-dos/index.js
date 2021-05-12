@@ -44,6 +44,27 @@ if (process.platform !== 'win32') {
     menuTemplate.unshift({});
 }
 
+if (process.env.NODE_ENV !== 'production') {
+    menuTemplate.push({
+        label: 'View',
+        submenu: [
+            {
+                label: 'Toggle Developer Tools',
+                accelerator: (() => {
+                    if (process.platform === 'win32') {
+                        return 'Ctrl+Shift+I';
+                    } else if (process.platform === 'darwin') {
+                        return 'Command+Alt+Q';
+                    }
+                })(),
+                click(item, focusedWindow) {
+                    focusedWindow.toggleDevTools();
+                }
+            }
+        ]
+    });
+}
+
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
         webPreferences: {
