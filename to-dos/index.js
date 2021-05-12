@@ -10,8 +10,10 @@ const createAddWindow = () => {
     addWindow =  new BrowserWindow({
         width: 300,
         height: 200,
-        title: 'Add new to-do'
+        title: 'Add new to-do',
+        icon: join(__dirname, './resources/todoIcon.jpg')
     });
+    addWindow.loadURL(join(__dirname, 'add.html'));
 };
 
 const menuTemplate = [
@@ -51,6 +53,7 @@ app.on('ready', () => {
         icon: join(__dirname, './resources/todoIcon.jpg')
     });
     mainWindow.loadURL(join(__dirname, 'main.html'));
+    mainWindow.on('closed', () => app.quit());
 
     const mainMenu = Menu.buildFromTemplate(menuTemplate);
     Menu.setApplicationMenu(mainMenu);
