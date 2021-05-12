@@ -22,7 +22,8 @@
         "localRoot": "${workspaceFolder}/to-dos",
         "remoteRoot": "${workspaceFolder}/to-dos",
         "outFiles": []
-      }, {
+      }, 
+      {
         "name": "[TO-DOs] Debug",
         "type": "node",
         "request": "launch",
@@ -42,6 +43,28 @@
         "sourceMaps": true,
         "localRoot": "${workspaceFolder}/to-dos",
         "remoteRoot": "${workspaceFolder}/to-dos",
+        "outFiles": []
+      },
+      {
+        "name": "[TASKY] Debug",
+        "type": "node",
+        "request": "launch",
+        "cwd": "${workspaceFolder}/tasky",
+        "runtimeExecutable": "${workspaceFolder}/tasky/node_modules/.bin/electron",
+        "windows": {
+          "runtimeExecutable": "${workspaceFolder}/tasky/node_modules/.bin/electron.cmd"
+        },
+        "args" : ["."],
+        "outputCapture": "std",
+        "protocol": "inspector",
+        "stopOnEntry": false,
+        "runtimeArgs": [
+            "--nolazy"
+        ],
+        "console": "integratedTerminal",
+        "sourceMaps": true,
+        "localRoot": "${workspaceFolder}/tasky",
+        "remoteRoot": "${workspaceFolder}/tasky",
         "outFiles": []
       }
     ]

@@ -17,7 +17,8 @@ app.on('ready', () => {
         width: 270,
         frame: false,
         resizable: false,
-        show: false
+        show: false,
+        skipTaskbar: true,
     });
     mainWindow.loadURL(join(__dirname, './src/index.html'));
     mainWindow.on('closed', () => app.quit());
