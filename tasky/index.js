@@ -4,7 +4,6 @@ const { app, BrowserWindow } = electron;
 const TimerTray = require('./app/timerTray');
 
 let mainWindow;
-let tray;
 
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
@@ -22,7 +21,7 @@ app.on('ready', () => {
     mainWindow.on('closed', () => app.quit());
 
     const iconName = process.platform === 'win32' ? 'windows-icon@2x.png' : 'iconTemplate@2x.png';
-    tray = new TimerTray(join(__dirname, `./src/assets/${iconName}`), mainWindow);
+    new TimerTray(join(__dirname, `./src/assets/${iconName}`), mainWindow);
     
     console.log('Application up & running');
 });
