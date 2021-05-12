@@ -4,13 +4,23 @@ const { join } = require('path');
 const { app, BrowserWindow , Menu } = electron;
 
 let mainWindow;
+let addWindow;
+
+const createAddWindow = () => {
+    addWindow =  new BrowserWindow({
+        width: 300,
+        height: 200,
+        title: 'Add new to-do'
+    });
+};
 
 const menuTemplate = [
     {
         label: 'File',
         submenu: [
             {
-                label: 'New to-do'
+                label: 'New to-do',
+                click() { createAddWindow(); }
             }, {
                 label: 'Quit',
                 accelerator: (() => {
