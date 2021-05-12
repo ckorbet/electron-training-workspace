@@ -11,9 +11,13 @@
     </form>
 
     <script>
+        const electron = require('electron');
+        const { ipcRenderer } = electron;
         document.getElementById('formId').addEventListener('submit', (event) => {
             event.preventDefault();
-            debugger
+            const { value } = document.getElementById('inputId');
+            ipcRenderer.send('todo:add', value);
+            
         });
 
     </script>

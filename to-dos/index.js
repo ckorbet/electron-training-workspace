@@ -1,7 +1,7 @@
 const electron = require('electron');
 const { join } = require('path');
 
-const { app, BrowserWindow , Menu } = electron;
+const { app, BrowserWindow , Menu, ipcMain } = electron;
 
 let mainWindow;
 let addWindow;
@@ -11,10 +11,20 @@ const createAddWindow = () => {
         width: 300,
         height: 200,
         title: 'Add new to-do',
-        icon: join(__dirname, './resources/todoIcon.jpg')
+        icon: join(__dirname, './resources/todoIcon.jpg'),
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        }
     });
     addWindow.loadURL(join(__dirname, 'add.html'));
 };
+
+ipcMain.on('todo:add', (event, value) => {
+    console.log(`This is my value: ${value}`);
+    mainWindow.webContents.send('todo:add', value);
+    addWindow.close();
+});
 
 const menuTemplate = [
     {
