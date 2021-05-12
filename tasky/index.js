@@ -2,6 +2,7 @@ const electron = require('electron');
 const { join } = require('path');
 const { app, BrowserWindow } = electron;
 const TimerTray = require('./app/timerTray');
+const package = require('./package.json');
 
 let mainWindow;
 
@@ -21,7 +22,7 @@ app.on('ready', () => {
     mainWindow.on('closed', () => app.quit());
 
     const iconName = process.platform === 'win32' ? 'windows-icon@2x.png' : 'iconTemplate@2x.png';
-    new TimerTray(join(__dirname, `./src/assets/${iconName}`), mainWindow);
+    new TimerTray(join(__dirname, `./src/assets/${iconName}`), mainWindow, package.version);
     
     console.log('Application up & running');
 });

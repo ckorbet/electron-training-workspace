@@ -3,10 +3,11 @@ const { Tray } = electron;
 
 module.exports = class extends Tray {
 
-    constructor(iconPath, mainWindow) {
+    constructor(iconPath, mainWindow, version) {
         super(iconPath);
         this.mainWindow = mainWindow;
         this.on('click', this.onClick.bind(this));
+        this.setToolTip(`Timer App ${version}`);
     }
 
     onClick(event, bounds) {
