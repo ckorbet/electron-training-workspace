@@ -6,6 +6,7 @@
 
 * videoinfo: given a video file, returns its duration
 * todos: application for to-do list
+* tasky
 
 ## Aditional references
 
