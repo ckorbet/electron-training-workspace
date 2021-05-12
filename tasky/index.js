@@ -5,6 +5,7 @@ const TimerTray = require('./app/timerTray');
 const package = require('./package.json');
 
 let mainWindow;
+let timeTray;
 
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
@@ -22,7 +23,7 @@ app.on('ready', () => {
     mainWindow.on('closed', () => app.quit());
 
     const iconName = process.platform === 'win32' ? 'windows-icon@2x.png' : 'iconTemplate@2x.png';
-    new TimerTray(join(__dirname, `./src/assets/${iconName}`), mainWindow, package.version);
+    timeTray = new TimerTray(join(__dirname, `./src/assets/${iconName}`), mainWindow, package.version);
     
     console.log('Application up & running');
 });

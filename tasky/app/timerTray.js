@@ -1,5 +1,6 @@
+const { app } = require('electron');
 const electron = require('electron');
-const { Tray } = electron;
+const { Tray, Menu } = electron;
 
 module.exports = class extends Tray {
 
@@ -7,6 +8,7 @@ module.exports = class extends Tray {
         super(iconPath);
         this.mainWindow = mainWindow;
         this.on('click', this.onClick.bind(this));
+        this.on('right-click', this.onRightClick.bind(this));
         this.setToolTip(`Timer App ${version}`);
     }
 
@@ -35,6 +37,13 @@ module.exports = class extends Tray {
         }
     }
 
-    
+    onRightClick(event) {
+        this.popUpContextMenu(Menu.buildFromTemplate([
+            {
+                label: 'Quit',
+                click(){ app.quit(); }
+            }
+        ]))
+    }
 
 }
