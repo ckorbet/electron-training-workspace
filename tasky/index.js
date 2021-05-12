@@ -1,7 +1,7 @@
 const electron = require('electron');
 const { join } = require('path');
-
-const { app, BrowserWindow, Tray } = electron;
+const { app, BrowserWindow } = electron;
+const TimerTray = require('./app/timerTray');
 
 let mainWindow;
 let tray;
@@ -22,7 +22,7 @@ app.on('ready', () => {
     mainWindow.on('closed', () => app.quit());
 
     const iconName = process.platform === 'win32' ? 'windows-icon@2x.png' : 'iconTemplate@2x.png';
-    tray = new Tray(join(__dirname, `./src/assets/${iconName}`));
+    tray = new TimerTray(join(__dirname, `./src/assets/${iconName}`));
     tray.on('click', (event, bounds) => {
         const { x, y } = bounds;
         const {height, width } = mainWindow.getBounds();
