@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
       {
-        "name": "Debug videoinfo",
+        "name": "[VIDEOINFO] Debug",
         "type": "node",
         "request": "launch",
         "cwd": "${workspaceFolder}/videoinfo",
@@ -19,8 +19,29 @@
         ],
         "console": "integratedTerminal",
         "sourceMaps": true,
-        "localRoot": "${workspaceFolder}/videoinfo",
-        "remoteRoot": "${workspaceFolder}/videoinfo",
+        "localRoot": "${workspaceFolder}/to-dos",
+        "remoteRoot": "${workspaceFolder}/to-dos",
+        "outFiles": []
+      }, {
+        "name": "[TO-DOs] Debug",
+        "type": "node",
+        "request": "launch",
+        "cwd": "${workspaceFolder}/to-dos",
+        "runtimeExecutable": "${workspaceFolder}/to-dos/node_modules/.bin/electron",
+        "windows": {
+          "runtimeExecutable": "${workspaceFolder}/to-dos/node_modules/.bin/electron.cmd"
+        },
+        "args" : ["."],
+        "outputCapture": "std",
+        "protocol": "inspector",
+        "stopOnEntry": false,
+        "runtimeArgs": [
+            "--nolazy"
+        ],
+        "console": "integratedTerminal",
+        "sourceMaps": true,
+        "localRoot": "${workspaceFolder}/to-dos",
+        "remoteRoot": "${workspaceFolder}/to-dos",
         "outFiles": []
       }
     ]

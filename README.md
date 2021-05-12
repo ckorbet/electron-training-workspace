@@ -4,7 +4,8 @@
 
 ### Training projects
 
-* videoinfo
+* videoinfo: given a video file, returns its duration
+* todos: application for to-do list
 
 ## Aditional references
 
