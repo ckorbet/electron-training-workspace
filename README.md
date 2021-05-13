@@ -6,7 +6,8 @@
 
 * videoinfo: given a video file, returns its duration
 * todos: application for to-do list
-* tasky
+* tasky: task timer
+* convert: video file format converter _(.avi, mpeg, mp4)_
 
 ## Aditional references
 
