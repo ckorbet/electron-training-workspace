@@ -14,6 +14,7 @@ module.exports = class extends BrowserWindow {
             resizable: false,
             show: false,
             skipTaskbar: true,
+            webPreferences: { backgroundThrottling: false}
         });
         this.on('blur', this.onBlur.bind(this));
     }
