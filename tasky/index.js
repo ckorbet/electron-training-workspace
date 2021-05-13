@@ -1,6 +1,6 @@
 const { join } = require('path');
 const electron = require('electron');
-const { app, BrowserWindow } = electron;
+const { app, ipcMain } = electron;
 const TimerTray = require('./app/timerTray');
 const MyMainWindow = require('./app/mainWindow');
 const package = require('./package.json');
@@ -17,4 +17,8 @@ app.on('ready', () => {
     timeTray = new TimerTray(join(__dirname, `./src/assets/${iconName}`), mainWindow, package.version);
     
     console.log('Application up & running');
+});
+
+ipcMain.on('update-timer', (event, timeLeft) => {
+    timeTray.setTitle(timeLeft);
 });
